@@ -1,11 +1,22 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { FlatList, StyleSheet, Text, View } from 'react-native';
+import LaundromatItem from './src/components/LaundromatItem';
+import laundromats from './assets/data/laundromats.json';
+import HomeScreen from './src/screens/HomeScreen';
+import LaundromatPage from './src/screens/LaundromatDetailsScreen';
+import ListItemDetails from './src/screens/ListItemScreen';
+import BasketPage from './src/screens/BasketScreen';
+import OrderScreen from './src/screens/OrderScreen';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      {/* <HomeScreen /> */}
+      {/* <LaundromatPage /> */}
+      {/* <ListItemDetails /> */}
+      {/* \<BasketPage /> */}
+      <OrderScreen />
+      <StatusBar style="light" />
     </View>
   );
 }

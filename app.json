@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "LaundryConnect",
-    "slug": "LaundryConnect",
+    "slug": "laundry-connect",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -25,6 +25,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "2adf5632-d03e-4bb9-a15c-f6c87534db1c"
+      }
+    },
+    "owner": "edd_bogonko"
   }
 }
