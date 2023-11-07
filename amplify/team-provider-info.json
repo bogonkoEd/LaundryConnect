@@ -1,0 +1,20 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-laundryconnect-staging-83821-authRole",
+      "UnauthRoleArn": "arn:aws:iam::343397689601:role/amplify-laundryconnect-staging-83821-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::343397689601:role/amplify-laundryconnect-staging-83821-authRole",
+      "Region": "eu-north-1",
+      "DeploymentBucketName": "amplify-laundryconnect-staging-83821-deployment",
+      "UnauthRoleName": "amplify-laundryconnect-staging-83821-unauthRole",
+      "StackName": "amplify-laundryconnect-staging-83821",
+      "StackId": "arn:aws:cloudformation:eu-north-1:343397689601:stack/amplify-laundryconnect-staging-83821/0252ced0-7d49-11ee-961c-0a7904571e58",
+      "AmplifyAppId": "d3olrf4f6jm1wt"
+    },
+    "categories": {
+      "auth": {
+        "LaundryConnect": {}
+      }
+    }
+  }
+}

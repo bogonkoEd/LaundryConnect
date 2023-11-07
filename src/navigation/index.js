@@ -10,6 +10,7 @@ import OrderScreen from "../screens/OrderScreen";
 import OrderDetailsScreen from "../screens/OrderDetails";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 import { AntDesign, MaterialCommunityIcons } from "@expo/vector-icons";
+import ProfileScreen from "../screens/ProfileScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -46,8 +47,8 @@ const HomeTabs = () => {
         }}
       />
       <Tab.Screen
-        name="Basket"
-        component={BasketPage}
+        name="Profile"
+        component={ProfileScreen}
         options={{
           tabBarIcon: ({ color }) => (
             <AntDesign name="user" size={24} color={color} />

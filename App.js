@@ -3,7 +3,13 @@ import { FlatList, StyleSheet, Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import RootNavigation from "./src/navigation";
 
-export default function App() {
+import  {Amplify } from "aws-amplify";
+import { withAuthenticator } from 'aws-amplify-react-native';
+import awsconfig from "./src/aws-exports";
+
+Amplify.configure(awsconfig);
+
+function App() {
   return (
     <NavigationContainer>
       
@@ -14,5 +20,6 @@ export default function App() {
   );
 }
 
+export default withAuthenticator(App);
 
 
