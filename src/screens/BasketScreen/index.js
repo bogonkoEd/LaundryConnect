@@ -2,6 +2,7 @@ import { StyleSheet, Text, View, Pressable, FlatList } from "react-native";
 import { React, useState } from "react";
 import { AntDesign } from "@expo/vector-icons";
 import laundromats from "../../../assets/data/laundromats.json";
+import BasketListItem from "../../components/BasketListItem";
 
 const laundromat = laundromats[0];
 
@@ -11,17 +12,6 @@ const BasketPage = () => {
   };
   const [quantity, setQuantity] = useState(1);
 
-  const ListItem = ({ basketItem }) => {
-    return (
-      <View style={styles.row}>
-        <View style={styles.quantityContainer}>
-          <Text style={styles.quantity}>{quantity}</Text>
-        </View>
-        <Text style={styles.name}>{basketItem.name}</Text>
-        <Text style={styles.price}>KES {basketItem.price.toFixed(2)}</Text>
-      </View>
-    );
-  };
 
   return (
     <View style={styles.page}>
@@ -31,7 +21,7 @@ const BasketPage = () => {
 
       <FlatList
         data={laundromat.services}
-        renderItem={({ item }) => <ListItem basketItem={item} />}
+        renderItem={({ item }) => <BasketListItem basketItem={item} />}
       />
       <View style={styles.separator} />
 

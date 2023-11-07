@@ -1,9 +1,15 @@
 import { StyleSheet, Text, View, Pressable, Image } from 'react-native'
 import React from 'react'
+import { useNavigation } from "@react-navigation/native";
 
 const LaundromatItem = ({ laundromat }) => {
+  const navigation = useNavigation();
+
+  const onPress = () => {
+    navigation.navigate("Laundromat", { id: laundromat.id });
+  }
     return (
-        <Pressable style={styles.laundromatContainer}>
+        <Pressable style={styles.laundromatContainer} onPress={onPress}>
           <Image
             source={{
               uri: laundromat.image,

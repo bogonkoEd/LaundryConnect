@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
       flex: 1,
     },
     iconContainer: {
-      position: "absolute",
+      position: "relative",
       top: 12,
       left: 2.5,
     },

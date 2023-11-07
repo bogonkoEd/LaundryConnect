@@ -1,10 +1,16 @@
 import { StyleSheet, Pressable, Text, View, Image } from "react-native";
 import React from "react";
+import { useNavigation } from "@react-navigation/native";
 
 const ListItem = ({ service }) => {
-    return (
+  const navigation = useNavigation();  
+  
+  return (
+
         <Pressable
           style={styles.container}
+          onPress={() => navigation.navigate("ListItem", { id: service.id })
+          }
         >
           <View style={{ flex: 1 }}>
             <Text style={styles.name}>{service.name}</Text>

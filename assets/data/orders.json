@@ -5,8 +5,8 @@
      "status":"NEW",
      "createdAt":"2022-04-16T18:56:21.890Z",
      "updatedAt":"2022-04-16T18:56:21.890Z",
-     "orderRestaurantId":"7d7965f7-1b33-4b8c-9bac-0c22bc905030",
-     "Restaurant":{
+     "orderLaundromatId":"7d7965f7-1b33-4b8c-9bac-0c22bc905030",
+     "Laundromat":{
         "id":"7d7965f7-1b33-4b8c-9bac-0c22bc905030",
         "name":"El Cabo Coffe Bar Tres De Mayo",
         "image":"https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant1.jpeg",
@@ -18,7 +18,7 @@
         "lat":46.87190499528364,
         "lng":28.54937769418778,
         "createdAt":"2022-04-16T12:03:33.225Z",
-        "updatedAt":"2022-04-16T12:05:12.826Z",
+        "updatedAt":"2022-04-16T12:05:12.826Z"
      }
   },
   {
@@ -27,8 +27,8 @@
      "status":"NEW",
      "createdAt":"2022-04-16T18:53:32.261Z",
      "updatedAt":"2022-04-16T18:53:32.261Z",
-     "orderRestaurantId":"7d7965f7-1b33-4b8c-9bac-0c22bc905030",
-     "Restaurant":{
+     "orderLaundromatId":"7d7965f7-1b33-4b8c-9bac-0c22bc905030",
+     "Laundromat":{
         "id":"7d7965f7-1b33-4b8c-9bac-0c22bc905030",
         "name":"Jacobs - DuBuque",
         "image":"https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant1.jpeg",
@@ -40,7 +40,7 @@
         "lat":46.87190499528364,
         "lng":28.54937769418778,
         "createdAt":"2022-04-16T12:03:33.225Z",
-        "updatedAt":"2022-04-16T12:05:12.826Z",
+        "updatedAt":"2022-04-16T12:05:12.826Z"
      }
   },
   {
@@ -49,11 +49,11 @@
      "status":"NEW",
      "createdAt":"2022-04-16T18:56:49.713Z",
      "updatedAt":"2022-04-16T18:56:49.713Z",
-     "orderRestaurantId":"7d7965f7-1b33-4b8c-9bac-0c22bc905030",
+     "orderLaundromatId":"7d7965f7-1b33-4b8c-9bac-0c22bc905030",
      "_version":1,
      "_lastChangedAt":1650135409734,
      "_deleted":null,
-     "Restaurant":{
+     "Laundromat":{
         "id":"7d7965f7-1b33-4b8c-9bac-0c22bc905030",
         "name":"Jacobs - DuBuque",
         "image":"https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant1.jpeg",
@@ -65,7 +65,7 @@
         "lat":46.87190499528364,
         "lng":28.54937769418778,
         "createdAt":"2022-04-16T12:03:33.225Z",
-        "updatedAt":"2022-04-16T12:05:12.826Z",
+        "updatedAt":"2022-04-16T12:05:12.826Z"
      }
   }
 ]

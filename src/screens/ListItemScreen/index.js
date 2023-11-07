@@ -2,12 +2,14 @@ import { StyleSheet, Text, View, Pressable } from "react-native";
 import { React, useState } from "react";
 import { AntDesign } from "@expo/vector-icons";
 import laundromats from "../../../assets/data/laundromats.json";
+import { useNavigation } from "@react-navigation/native";
 
 const service = laundromats[0].services[0];
 const quantity = 1;
 
 const ListItemDetails = () => {
   const [quantity, setQuantity] = useState(1);
+  const navigation = useNavigation();
 
   const onMinus = () => {
     setQuantity(Math.max(0, quantity - 1));
@@ -42,7 +44,7 @@ const ListItemDetails = () => {
         />
       </View>
 
-      <Pressable style={styles.button}>
+      <Pressable style={styles.button} onPress={() => navigation.navigate("Basket")}>
         <Text style={styles.buttonText}>
           Add {quantity} to basket &#8226; KES{" "}
           {getTotals()}
