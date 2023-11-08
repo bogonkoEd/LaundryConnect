@@ -38,7 +38,12 @@ export default LaundromatItem
 const styles = StyleSheet.create({
     laundromatContainer: {
         width: "100%",
-        marginVertical: 10
+        marginVertical: 10,
+        backgroundColor: "#cc99ff",
+        borderRadius: 10,
+        overflow: "hidden",
+        padding: 10,
+
     },
     image: {
         width: "100%",
@@ -59,7 +64,7 @@ const styles = StyleSheet.create({
     },
     rating: {
         marginLeft: "auto",
-        backgroundColor: "#7f7fff",
+        backgroundColor: "#b266ff",
         width: 30,
         height: 30,
         alignItems: "center",

@@ -60,8 +60,9 @@ const styles = StyleSheet.create({
   page: {
     flex: 1,
     width: "100%",
-    paddingVertical: 40, // temp fix
+    paddingVertical: 20, // temp fix
     padding: 10,
+    backgroundColor: "#bf7fff",
   },
   name: {
     fontSize: 30,
@@ -69,7 +70,7 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
   description: {
-    color: "gray",
+    color: "#525252",
   },
   separator: {
     height: 1,
@@ -87,13 +88,14 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
   },
   button: {
-    backgroundColor: "black",
+    backgroundColor: "#d8b2ff",
     marginTop: "auto",
     padding: 20,
     alignItems: "center",
+    borderRadius: 10,
   },
   buttonText: {
-    color: "white",
+    color: "black",
     fontWeight: "600",
     fontSize: 18,
   },

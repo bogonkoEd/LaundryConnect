@@ -24,6 +24,7 @@ const LaundromatHeader = () => {
 const styles = StyleSheet.create({
   page: {
     flex: 1,
+    backgroundColor: "#bf7fff",
   },
   image: {
     width: "100%",

@@ -8,6 +8,7 @@ const BasketListItem = ({ basketItem }) => {
         <Text style={styles.quantity}>1</Text>
       </View>
       <Text style={styles.titleName}>{basketItem.name}</Text>
+      
       <Text style={styles.price}>KES {basketItem.price.toFixed(2)}</Text>
     </View>
   );
@@ -21,33 +22,39 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     paddingVertical: 20,
-    marginHorizontal: 20,
+    paddingHorizontal: 20,
     borderBottomWidth: 1,
-    borderColor: "lightgrey",
+    borderColor: "black",
+    backgroundColor: "#cc99ff",
   },
   quantityContainer: {
-    backgroundColor: "#e3e3e3",
-    flexDirection: "row",
+    backgroundColor: "#8000ff",
     justifyContent: "space-between",
     alignItems: "center",
-    width: 50,
-    borderRadius: 30,
+    width: 30,
+    borderRadius: 20,
     padding: 5,
   },
   separator: {
-    height: 0.5,
-    backgroundColor: "lightgrey",
+    height: 0.8,
+    backgroundColor: "black",
     width: "100%",
   },
   titleName: {
     fontSize: 18,
-    fontWeight: "bold",
+    fontWeight: "500",
+    marginLeft: 10,
+    flex: 1,
   },
   price: {
     marginLeft: "auto",
   },
   quantity: {
-    marginHorizontal: 15,
-    color: "#007eb9",
+    justifyContent: "center",
+    alignSelf: "center",
+    color: "black",
+    fontWeight: "400",
+    fontSize: 18,
+
   },
 });

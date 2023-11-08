@@ -31,8 +31,11 @@ export default OrderListItem
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    margin: 10, 
-    alignItems: "center" 
+    marginTop: 10, 
+    alignItems: "center",
+    backgroundColor: "#cc99ff",
+    padding: 10,
+    borderRadius: 10,
   },
   image: {
     width: 75,

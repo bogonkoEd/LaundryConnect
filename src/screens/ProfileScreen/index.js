@@ -5,8 +5,10 @@ import {
   TextInput,
   SafeAreaView,
   Button,
+  Pressable,
 } from "react-native";
 import React, { useState } from "react";
+import { Auth } from "aws-amplify";
 
 const ProfileScreen = () => {
   const [name, setName] = useState("");
@@ -16,7 +18,7 @@ const ProfileScreen = () => {
 
   const onSave = async () => {};
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.contain}>
       <Text style={styles.title}>Profile</Text>
       <TextInput
         value={name}
@@ -43,7 +45,9 @@ const ProfileScreen = () => {
         placeholder="Longitude"
         style={styles.input}
       />
-      <Button onPress={onSave} title="Save" />
+      <Pressable onPress={onSave} style={styles.button} >
+        <Text style={styles.buttonText}>Save Changes</Text>
+      </Pressable>
       <Text
         onPress={() => Auth.signOut()}
         style={{ textAlign: "center", color: "red", margin: 10 }}
@@ -62,11 +66,29 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center",
     margin: 10,
+    marginTop: 40
   },
   input: {
     margin: 10,
-    backgroundColor: "white",
+    backgroundColor: "#e5ccff",
     padding: 15,
     borderRadius: 5,
+  },
+  contain: {
+    flex: 1,
+    backgroundColor: "#bf7fff",
+  },
+  button: {
+    backgroundColor: "#cc99ff",
+    padding: 20,
+    alignItems: "center",
+    borderRadius: 10,
+    width: "60%",
+    alignSelf: "center",
+  },
+  buttonText: {
+    color: "black",
+    fontWeight: "600",
+    fontSize: 18,
   },
 });

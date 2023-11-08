@@ -1,7 +1,4 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { useNavigation } from "@react-navigation/native";
-import LaundromatItem from "../components/LaundromatItem";
-import laundromats from "../../assets/data/laundromats.json";
 import HomeScreen from "../screens/HomeScreen";
 import LaundromatPage from "../screens/LaundromatDetailsScreen";
 import ListItemDetails from "../screens/ListItemScreen";
@@ -9,7 +6,7 @@ import BasketPage from "../screens/BasketScreen";
 import OrderScreen from "../screens/OrderScreen";
 import OrderDetailsScreen from "../screens/OrderDetails";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
-import { AntDesign, MaterialCommunityIcons } from "@expo/vector-icons";
+import { AntDesign, MaterialCommunityIcons, MaterialIcons, FontAwesome5 } from "@expo/vector-icons";
 import ProfileScreen from "../screens/ProfileScreen";
 
 const Stack = createNativeStackNavigator();
@@ -27,13 +24,13 @@ const Tab = createMaterialBottomTabNavigator();
 
 const HomeTabs = () => {
   return (
-    <Tab.Navigator screenOptions={{ tabBarColor: "white" }}>
+    <Tab.Navigator barStyle={{backgroundColor: "#b266ff"}} activeColor="black" inactiveColor="#e5ccff" >
       <Tab.Screen
-        name="Orders"
+        name="Baskets"
         component={OrdersStackScreen}
         options={{
           tabBarIcon: ({ color }) => (
-            <AntDesign name="profile" size={24} color={color} />
+            <MaterialIcons name="local-laundry-service" size={24} color={color} />
           ),
         }}
       />
@@ -51,7 +48,7 @@ const HomeTabs = () => {
         component={ProfileScreen}
         options={{
           tabBarIcon: ({ color }) => (
-            <AntDesign name="user" size={24} color={color} />
+            <FontAwesome5 name="user-astronaut" size={24} color={color} />
           ),
         }}
       />
@@ -64,10 +61,11 @@ const HomeStack = createNativeStackNavigator()
 const HomeStackScreen = () => {
   return (
     <HomeStack.Navigator>
-      <HomeStack.Screen name="Home" component={HomeScreen} />
-      <HomeStack.Screen name="Laundromat" component={LaundromatPage} />
-      <HomeStack.Screen name="ListItem" component={ListItemDetails} />
+      <HomeStack.Screen name="Laundromats" component={HomeScreen} options={{headerShown: false}} />
+      <HomeStack.Screen name="Laundromat" component={LaundromatPage} options={{headerShown: false}} />
+      <HomeStack.Screen name="ListItem" component={ListItemDetails} options={{headerTitle: "Service"}} />
       <HomeStack.Screen name="Basket" component={BasketPage} />
+      <HomeStack.Screen name="Profile" component={ProfileScreen} />
     </HomeStack.Navigator>
   )
 }
@@ -77,8 +75,8 @@ const OrdersStack = createNativeStackNavigator()
 const OrdersStackScreen = () => {
   return (
     <OrdersStack.Navigator>
-      <OrdersStack.Screen name="OrdersDetail" component={OrderScreen} />
-      <OrdersStack.Screen name="Order" component={OrderDetailsScreen} />
+      <OrdersStack.Screen name="Your Baskets" component={OrderScreen}  />
+      <OrdersStack.Screen name="Order" component={OrderDetailsScreen} options={{headerTitle: "Basket"}} />
     </OrdersStack.Navigator>
   )
 }

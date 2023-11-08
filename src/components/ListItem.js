@@ -31,11 +31,11 @@ export default ListItem;
 const styles = StyleSheet.create({
   container: {
     paddingVertical: 10,
-    marginVertical: 10,
-    marginHorizontal: 20,
-    borderBottomColor: "lightgrey",
+    paddingHorizontal: 20,
+    borderBottomColor: "black",
     borderBottomWidth: 1,
     flexDirection: "row",
+    backgroundColor: "#cc99ff",
   },
   name: {
     fontWeight: "600",
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     letterSpacing: 0.5,
   },
   description: {
-    color: "gray",
+    color: "#525252",
     marginVertical: 5,
   },
   price: {

@@ -19,7 +19,7 @@ const OrderDetailsHeader = () => {
             {order.status} &#8226; {order.Laundromat.minDeliveryTime}- {order.Laundromat.maxDeliveryTime} minutes
           </Text>
 
-          <Text style={styles.menuTitle}>Your Order</Text>
+          <Text style={styles.menuTitle}>Your Laundry Basket</Text>
         </View>
       </View>
     </View>
@@ -40,6 +40,7 @@ export default OrderDetailsScreen;
 const styles = StyleSheet.create({
     page: {
         flex: 1,
+        backgroundColor: "#bf7fff",
     },
     image: {
         width: "100%",
