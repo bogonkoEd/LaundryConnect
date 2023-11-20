@@ -5,8 +5,8 @@ LaundryConnect is an innovative solution designed to streamline the process of m
 
 ## Technologies Used
 - **React Native:** For building the mobile application.
-- **Node.js:** Backend server development.
-- **MongoDB:** Database for storing user data and laundry service details.
+- **AWS Amplify:** Backend development.
+
 
 ## Features
 - **User Authentication:** Secure login and registration system.
