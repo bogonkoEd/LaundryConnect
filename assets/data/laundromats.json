@@ -1,60 +1,60 @@
 [
   {
     "id": "1",
-    "name": "El Cabo Coffe Bar Tres De Mayo",
-    "deliveryFee": 1.4,
+    "name": "Bubble Wash",
+    "deliveryFee": 50,
     "minDeliveryTime": 25,
     "maxDeliveryTime": 35,
     "rating": 4.0,
-    "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant1.jpeg",
+    "image": "https://previews.123rf.com/images/marigisina/marigisina2211/marigisina221100164/194988643-laundry-and-dry-cleaning-service-banner-template-flat-vector-illustration-isolated-on-white.jpg",
     "services": [
       {
         "key": "01",
-        "name": "Cheese Tequeños",
-        "description": "6 pieces of chese with sauce.",
-        "price": 6.9,
-        "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant2.jpeg"
+        "name": "Quick Clean",
+        "description": "Fast and efficient laundry services",
+        "price": 160.9,
+        "image": "https://previews.123rf.com/images/marigisina/marigisina2211/marigisina221100164/194988643-laundry-and-dry-cleaning-service-banner-template-flat-vector-illustration-isolated-on-white.jpg"
       },
       {
         "key": "02",
-        "name": "Hamburger La Super Cabo Burger",
-        "description": "Double meat, gouda cheese, cheddar cheese, cooked ham, bacon, egg, salad and rustic potatoes.",
-        "price": 8.9,
-        "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant3.jpeg"
+        "name": ": Eco Wash",
+        "description": " Environmentally friendly laundry solutions.",
+        "price": 99.9,
+        "image": "https://img.freepik.com/premium-vector/laundry-service-horizontal-banner-template_554907-387.jpg?w=1800"
       },
       {
-        "name": "U.S.A. Burger",
-        "description": "Beef, gouda cheese, cheddar cheese, cooked ham, bacon, egg and salad.",
-        "price": 5.4
+        "name": "Premium Wash",
+        "description": " Premium laundry services.",
+        "price": 250.4
       },
       {
-        "name": "Slices of Llanero Cheese",
-        "description": "Ripe plantain with cheese and palm honey.",
-        "price": 5.9
+        "name": "Dry Cleaning",
+        "description": "Dry cleaning services.",
+        "price": 350.9
       },
       {
-        "name": "Papas Locas El Cabo",
-        "description": "French fries with shredded chicken, gouda cheese and ham.",
-        "price": 7.9
+        "name": "Wash & Fold",
+        "description": "Wash & Fold services.",
+        "price": 500
       }
     ]
   },
   {
     "id": "2",
-    "name": "Tony Roma's - C.C. Meridiano",
-    "deliveryFee": 0.4,
+    "name": "Lavanderia",
+    "deliveryFee": 100,
     "minDeliveryTime": 25,
     "maxDeliveryTime": 35,
     "rating": 4.7,
-    "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant2.jpeg"
+    "image": "https://previews.123rf.com/images/marigisina/marigisina2211/marigisina221100164/194988643-laundry-and-dry-cleaning-service-banner-template-flat-vector-illustration-isolated-on-white.jpg"
   },
   {
     "id": "3",
-    "name": "Meridiano",
-    "deliveryFee": 0.4,
+    "name": "Laundry Shop",
+    "deliveryFee": 150,
     "minDeliveryTime": 25,
     "maxDeliveryTime": 35,
     "rating": 4.7,
-    "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant2.jpeg"
+    "image": "https://previews.123rf.com/images/marigisina/marigisina2211/marigisina221100164/194988643-laundry-and-dry-cleaning-service-banner-template-flat-vector-illustration-isolated-on-white.jpg"
   }
 ]
