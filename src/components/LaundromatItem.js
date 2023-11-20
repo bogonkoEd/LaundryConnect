@@ -20,13 +20,13 @@ const LaundromatItem = ({ laundromat }) => {
             <View>
               <Text style={styles.title}>{laundromat.name}</Text>
               <Text style={styles.subtitle}>
-                KES {laundromat.deliveryFee} &#8226; {laundromat.minDeliveryTime}-
+                KES {laundromat.deliveryFee.toFixed(2)} &#8226; {laundromat.minDeliveryTime}-
                 {laundromat.maxDeliveryTime} minutes
               </Text>
             </View>
     
             <View style={styles.rating}>
-              <Text>{laundromat.rating}</Text>
+              <Text>{laundromat.rating.toFixed(0)}</Text>
             </View>
           </View>
         </Pressable>
