@@ -12,7 +12,7 @@ const LaundromatItem = ({ laundromat }) => {
         <Pressable style={styles.laundromatContainer} onPress={onPress}>
           <Image
             source={{
-              uri: laundromat.image,
+              uri: laundromat.image_url,
             }}
             style={styles.image}
           />
