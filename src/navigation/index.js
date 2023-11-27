@@ -24,7 +24,7 @@ const Tab = createMaterialBottomTabNavigator();
 
 const HomeTabs = () => {
   return (
-    <Tab.Navigator barStyle={{backgroundColor: "#b266ff"}} activeColor="black" inactiveColor="#e5ccff" >
+    <Tab.Navigator barStyle={{backgroundColor: "#b266ff"}} activeColor="black" inactiveColor="#e5ccff" initialRouteName="Home">
       <Tab.Screen
         name="Baskets"
         component={OrdersStackScreen}
