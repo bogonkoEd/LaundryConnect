@@ -11,7 +11,7 @@ export default function HomeScreen() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await API.graphql(graphqlOperation(listLaundromats, {
+        const response = await API.graphql(graphqlOperation(listLaundromats, { 
           filter: {
             _deleted: {
               ne: true

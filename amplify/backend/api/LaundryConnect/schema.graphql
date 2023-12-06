@@ -1,3 +1,12 @@
+type User @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  uname: String
+  email: AWSEmail
+  phone_no: AWSPhone
+  address: String
+  payment_Method: String
+}
+
 type ServiceItem @model @auth(rules: [{allow: public}]) {
   id: ID!
   name: String!
@@ -19,4 +28,5 @@ type Laundromat @model @auth(rules: [{allow: public}]) {
   lng: Float
   image_url: String!
   Services: [ServiceItem] @hasMany(indexName: "byLaundromat", fields: ["id"])
-} 
+}
+ 

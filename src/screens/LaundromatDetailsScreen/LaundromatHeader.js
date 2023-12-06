@@ -1,7 +1,6 @@
 import { View, StyleSheet, Text, Image, FlatList } from "react-native";
 import laundromats from "../../../assets/data/laundromats.json";
 const laundromat = laundromats[0];
-("");
 
 const LaundromatHeader = () => {
   return (
