@@ -7,8 +7,11 @@ import {
   Button,
   Pressable,
 } from "react-native";
-import React, { useState } from "react";
-import { Auth } from "aws-amplify";
+import React, { useState, useEffect } from "react";
+import { API, Auth, graphqlOperation } from "aws-amplify";
+import { createUser, updateUser } from "../../graphql/mutations";
+import { useAuthCXT } from "../../context/AuthCXT";
+import { useNavigation } from "@react-navigation/native";
 
 const ProfileScreen = () => {
   const [name, setName] = useState("");
@@ -16,7 +19,82 @@ const ProfileScreen = () => {
   const [lat, setLat] = useState("");
   const [lng, setLng] = useState("");
 
-  const onSave = async () => {};
+  const { sub, setDbUser, dbUser } = useAuthCXT();
+
+  const navigation = useNavigation();
+
+  useEffect(() => {
+    Auth.currentAuthenticatedUser({ bypassCache: true })
+      .then((authUser) => {
+        if (authUser.attributes.sub === dbUser?.sub) {
+          // Set the initial profile data from dbUser
+          setName(dbUser.name);
+          setAddress(dbUser.address);
+          setLat(dbUser.lat.toString());
+          setLng(dbUser.lng.toString());
+        }
+      })
+      .catch((error) => console.error("Error fetching auth user", error));
+  }, [dbUser]);
+
+  const onSave = async () => {
+    const latNumber = parseFloat(lat);
+    const lngNumber = parseFloat(lng);
+    let userInfo;
+    try {
+      if (dbUser) {
+        const input = {
+          id: dbUser.id,
+          name,
+          address,
+          lat: latNumber,
+          lng: lngNumber,
+        };
+
+        if (dbUser.sub === sub) {
+          // Update existing user
+          userInfo = await API.graphql(
+            graphqlOperation(updateUser, {
+              input: {
+                id: dbUser.id, // Assuming dbUser has an id field
+                name,
+                address,
+                lat: latNumber,
+                lng: lngNumber,
+              },
+            })
+          );
+        } else {
+          // Create new user
+          userInfo = await API.graphql(
+            graphqlOperation(createUser, {
+              input: {
+                name,
+                address,
+                lat: latNumber,
+                lng: lngNumber,
+              },
+            })
+          );
+        }
+
+        if(userInfo && userInfo.data) {
+          setDbUser(userInfo.data.createUser || userInfo.data.updateUser); // Update the dbUser context
+          alert("Profile saved successfully!");
+        } else {
+          console.error("Error saving profile: ", e);
+          alert("Failed to save profile.");
+        }
+      }else{
+        console.error("dbUSer is null");
+        alert("Failed to save profile.");
+      }
+    } catch (e) {
+      console.error("Error saving profile: ", e);
+      alert("Failed to save profile." + e.message);
+    }
+  }
+  
   return (
     <SafeAreaView style={styles.contain}>
       <Text style={styles.title}>Profile</Text>
@@ -45,7 +123,7 @@ const ProfileScreen = () => {
         placeholder="Longitude"
         style={styles.input}
       />
-      <Pressable onPress={onSave} style={styles.button} >
+      <Pressable onPress={onSave} style={styles.button}>
         <Text style={styles.buttonText}>Save Changes</Text>
       </Pressable>
       <Text
@@ -66,7 +144,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center",
     margin: 10,
-    marginTop: 40
+    marginTop: 40,
   },
   input: {
     margin: 10,

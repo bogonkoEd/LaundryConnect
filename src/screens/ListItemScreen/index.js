@@ -1,15 +1,46 @@
-import { StyleSheet, Text, View, Pressable } from "react-native";
-import { React, useState } from "react";
+import { StyleSheet, Text, View, Pressable, ActivityIndicator } from "react-native";
+import { React, useState, useEffect } from "react";
 import { AntDesign } from "@expo/vector-icons";
-import laundromats from "../../../assets/data/laundromats.json";
-import { useNavigation } from "@react-navigation/native";
+import { API, graphqlOperation } from 'aws-amplify';
+import { useNavigation, useRoute } from "@react-navigation/native";
+import { getServiceItem } from '../../graphql/queries';
 
-const service = laundromats[0].services[0];
 const quantity = 1;
 
 const ListItemDetails = () => {
+  const [service, setService] = useState({});
   const [quantity, setQuantity] = useState(1);
+  const [loading, setLoading] = useState(true);
+
   const navigation = useNavigation();
+  const route = useRoute();
+  const id = route.params.id;
+
+  const {addService} = useBasketCXT();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const serviceData = await API.graphql(graphqlOperation(getServiceItem, { id }));
+        setService(serviceData.data.getServiceItem);
+      } catch (e) {
+        console.error("Error fetching data: ", e);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [id]);
+
+  if (loading) {
+    return <ActivityIndicator size={"large"} color="green" />;
+  }
+
+  const onAdd = async () => {
+    await addService(service, quantity);
+    navigation.goBack();
+  };
 
   const onMinus = () => {
     setQuantity(Math.max(0, quantity - 1));
@@ -44,7 +75,7 @@ const ListItemDetails = () => {
         />
       </View>
 
-      <Pressable style={styles.button} onPress={() => navigation.navigate("Basket")}>
+      <Pressable style={styles.button} onPress={onAdd}>
         <Text style={styles.buttonText}>
           Add {quantity} to basket &#8226; KES{" "}
           {getTotals()}

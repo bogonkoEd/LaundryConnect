@@ -1,16 +1,21 @@
-import { View, StyleSheet, Text, Image, FlatList } from "react-native";
-import laundromats from "../../../assets/data/laundromats.json";
-const laundromat = laundromats[0];
+import { View, StyleSheet, Text, Image } from "react-native";
 
-const LaundromatHeader = () => {
+const LaundromatHeader = ({laundromat}) => {
   return (
     <View style={styles.page}>
-      <Image source={{ uri: laundromat.image }} style={styles.image} />
+      <Image
+        source={{
+          uri: laundromat.image_url.startsWith("http")
+            ? laundromat.image_url
+            : DEFAULT_IMAGE,
+        }}
+        style={styles.image}
+      />
 
       <View style={styles.container}>
         <Text style={styles.title}>{laundromat.name}</Text>
         <Text style={styles.subtitle}>
-          KES {laundromat.deliveryFee} &#8226; {laundromat.minDeliveryTime}-
+          KES {laundromat.deliveryFee.toFixed(2)} &#8226; {laundromat.minDeliveryTime}-
           {laundromat.maxDeliveryTime} minutes
         </Text>
 
