@@ -6,9 +6,12 @@ import {
   SafeAreaView,
   Button,
   Pressable,
+  Alert,
 } from "react-native";
 import React, { useState } from "react";
-import { Auth } from "aws-amplify";
+import { Auth, DataStore } from "aws-amplify";
+import { useAuthCXT } from "../../context/AuthCXT";
+import { User } from "../../models";
 
 const ProfileScreen = () => {
   const [name, setName] = useState("");
@@ -16,7 +19,42 @@ const ProfileScreen = () => {
   const [lat, setLat] = useState("");
   const [lng, setLng] = useState("");
 
-  const onSave = async () => {};
+  const { sub } = useAuthCXT();
+
+  const onSave = async () => {
+    if (sub) {
+      updateUser();
+    } else {
+      createUser();
+    }
+    }
+
+    const createUser = async () => {
+      const newUser = await DataStore.save(
+        new User({
+          sub,
+          name,
+          address,
+          lat,
+          lng,
+        })
+      );
+      console.log(newUser);
+      Alert.alert("Success", "User created successfully");
+    }
+
+    const updateUser = async () => {
+      const user = await DataStore.query(User, sub);
+      await DataStore.save(
+        User.copyOf(user, (updated) => {
+          updated.name = name;
+          updated.address = address;
+          updated.lat = lat;
+          updated.lng = lng;
+        })
+      );
+      Alert.alert("Success", "User updated successfully");
+  };
   return (
     <SafeAreaView style={styles.contain}>
       <Text style={styles.title}>Profile</Text>
@@ -45,7 +83,7 @@ const ProfileScreen = () => {
         placeholder="Longitude"
         style={styles.input}
       />
-      <Pressable onPress={onSave} style={styles.button} >
+      <Pressable onPress={onSave} style={styles.button}>
         <Text style={styles.buttonText}>Save Changes</Text>
       </Pressable>
       <Text
@@ -66,7 +104,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center",
     margin: 10,
-    marginTop: 40
+    marginTop: 40,
   },
   input: {
     margin: 10,

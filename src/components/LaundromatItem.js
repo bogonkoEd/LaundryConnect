@@ -2,6 +2,8 @@ import { StyleSheet, Text, View, Pressable, Image } from 'react-native'
 import React from 'react'
 import { useNavigation } from "@react-navigation/native";
 
+const DEFAULT_IMAGE = "https://cdn.pixabay.com/photo/2017/01/13/01/22/laundromat-1971930_960_720.jpg";
+
 const LaundromatItem = ({ laundromat }) => {
   const navigation = useNavigation();
 
@@ -12,7 +14,7 @@ const LaundromatItem = ({ laundromat }) => {
         <Pressable style={styles.laundromatContainer} onPress={onPress}>
           <Image
             source={{
-              uri: laundromat.image_url,
+              uri: laundromat.image_url.startsWith("http") ? laundromat.image_url : DEFAULT_IMAGE,
             }}
             style={styles.image}
           />

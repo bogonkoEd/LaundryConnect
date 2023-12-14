@@ -1,11 +1,18 @@
 import { View, StyleSheet, Text, Image, FlatList } from "react-native";
-import laundromats from "../../../assets/data/laundromats.json";
-const laundromat = laundromats[0];
 
-const LaundromatHeader = () => {
+const DEFAULT_IMAGE = "https://cdn.pixabay.com/photo/2017/01/13/01/22/laundromat-1971930_960_720.jpg";
+
+const LaundromatHeader = (laundromat) => {
   return (
     <View style={styles.page}>
-      <Image source={{ uri: laundromat.image }} style={styles.image} />
+      <Image
+        source={{
+          uri: laundromat.image_url
+            ? laundromat.image_url
+            : DEFAULT_IMAGE,
+        }}
+        style={styles.image}
+      />
 
       <View style={styles.container}>
         <Text style={styles.title}>{laundromat.name}</Text>

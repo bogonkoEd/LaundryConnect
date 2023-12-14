@@ -8,10 +8,13 @@ import OrderDetailsScreen from "../screens/OrderDetails";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 import { AntDesign, MaterialCommunityIcons, MaterialIcons, FontAwesome5 } from "@expo/vector-icons";
 import ProfileScreen from "../screens/ProfileScreen";
+import { useAuthCTX } from "../context/AuthCXT"
 
 const Stack = createNativeStackNavigator();
 
 const RootNavigation = () => {
+
+
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
       <Stack.Screen name="HomeTabs" component={HomeTabs} />
